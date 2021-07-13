@@ -1,12 +1,29 @@
 <div class="container-default">
-  <nav class="navbar">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <a href="#" class="navbar-brand">
+        <a [routerLink]="['/']" href="#" class="navbar-brand">
           {{ title }}
         </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a [routerLink]="['/pessoas']" class="nav-link" href="#">Pessoas</a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/enderecos']" class="nav-link" href="#">Endereços</a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/estados']" class="nav-link" href="#">Estados</a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/cidades']" class="nav-link" href="#">Cidades</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
   </nav>
   <router-outlet></router-outlet>
 </div>

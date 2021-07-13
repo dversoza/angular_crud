@@ -5,10 +5,11 @@ import { AppComponent } from './app.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { PessoaModule } from './pessoa';
+import { EnderecoModule } from './endereco';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, PessoaModule],
+  imports: [BrowserModule, AppRoutingModule, PessoaModule, EnderecoModule],
   providers: [],
   bootstrap: [AppComponent],
 })

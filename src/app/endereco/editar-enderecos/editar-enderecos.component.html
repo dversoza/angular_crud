@@ -1,0 +1,168 @@
+<h1>Editar endereço</h1>
+
+<form #formEndereco="ngForm">
+  <div class="form-group">
+    <label for="rua">Rua: </label>
+    <input
+      [(ngModel)]="endereco.rua"
+      #rua="ngModel"
+      name="rua"
+      id="input_rua"
+      type="text"
+      class="form-control"
+      placeholder="Rua"
+      required
+      minlength="3"
+      autocomplete="street-address"
+    />
+    <div
+      *ngIf="rua.errors && (rua.dirty || rua.touched)"
+      class="alert alert-danger"
+    >
+      <div [hidden]="!rua.errors.required">Digite a rua.</div>
+      <div [hidden]="!rua.errors.minlength">
+        A rua deve conter pelo menos 3 caracteres.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="numero">Número: </label>
+    <input
+      [(ngModel)]="endereco.numero"
+      #numero="ngModel"
+      name="numero"
+      id="input_numero"
+      type="number"
+      class="form-control"
+      placeholder="Número"
+      required
+    />
+    <div
+      *ngIf="numero.errors && (numero.dirty || numero.touched)"
+      class="alert alert-danger"
+    >
+      <div [hidden]="!numero.errors.required">Digite o número.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="complemento">Complemento: </label>
+    <input
+      [(ngModel)]="endereco.complemento"
+      #complemento="ngModel"
+      name="complemento"
+      id="input_complemento"
+      type="text"
+      class="form-control"
+      placeholder="complemento"
+    />
+  </div>
+  <div class="form-group">
+    <label for="bairro">Bairro: </label>
+    <input
+      [(ngModel)]="endereco.bairro"
+      #bairro="ngModel"
+      name="bairro"
+      id="input_bairro"
+      type="text"
+      class="form-control"
+      placeholder="Bairro"
+      minlength="3"
+      required
+    />
+    <div
+      *ngIf="bairro.errors && (bairro.dirty || bairro.touched)"
+      class="alert alert-danger"
+    >
+      <div [hidden]="!bairro.errors.required">Digite o bairro.</div>
+      <div [hidden]="!bairro.errors.minlength">
+        O bairro deve conter pelo menos 3 caracteres.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cep">CEP: </label>
+    <input
+      [(ngModel)]="endereco.cep"
+      #cep="ngModel"
+      name="cep"
+      id="input_cep"
+      type="text"
+      class="form-control"
+      placeholder="CEP"
+      required
+      maxlength="10"
+      autocomplete="postal-code"
+    />
+    <div
+      *ngIf="cep.errors && (cep.dirty || cep.touched)"
+      class="alert alert-danger"
+    >
+      <div [hidden]="!cep.errors.required">Digite o CEP do endereço.</div>
+      <div [hidden]="!cep.errors.maxlength">
+        O CEP deve conter até 10 caracteres.
+      </div>
+    </div>
+    <small>Digite o CEP com ponto e hífen.</small>
+  </div>
+  <div class="form-group">
+    <label for="cidade">Cidade: </label>
+    <input
+      [(ngModel)]="endereco.cidade"
+      #cidade="ngModel"
+      name="cidade"
+      id="input_cidade"
+      type="text"
+      class="form-control"
+      placeholder="Cidade"
+      required
+      minlength="3"
+      autocomplete="locality"
+    />
+    <div
+      *ngIf="cidade.errors && (cidade.dirty || cidade.touched)"
+      class="alert alert-danger"
+    >
+      <div [hidden]="!cidade.errors.required">Digite a cidade.</div>
+      <div [hidden]="!cidade.errors.minlength">
+        A cidade deve conter pelo menos 3 caracteres.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="estado">Estado: </label>
+    <input
+      [(ngModel)]="endereco.estado"
+      #estado="ngModel"
+      name="estado"
+      id="input_estado"
+      type="text"
+      class="form-control"
+      placeholder="Estado"
+      required
+      minlength="2"
+      maxlength="2"
+      autocomplete="region"
+    />
+    <div
+      *ngIf="estado.errors && (estado.dirty || estado.touched)"
+      class="alert alert-danger"
+    >
+      <div [hidden]="!estado.errors.required">Digite a sigla do Estado.</div>
+      <div [hidden]="!estado.errors.minlength">
+        A sigla do Estado deve conter exatamente 2 caracteres.
+      </div>
+    </div>
+    <small>Digite apenas a sigla do Estado.</small>
+  </div>
+  <button
+    [disabled]="!formEndereco.form.valid"
+    type="button"
+    (click)="atualizar()"
+    class="btn btn-primary"
+  >
+    <i class="fa fa-save" aria-hidden="true"></i> Atualizar
+  </button>
+  <a class="btn btn-secondary" href="#" [routerLink]="['/enderecos']"
+    ><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a
+  >
+</form>

@@ -1,0 +1,80 @@
+<h1>Editar pessoa</h1>
+
+<div class="well">
+  <form #formPessoa="ngForm">
+    <div class="form-group">
+      <label for="nome">Nome: </label>
+      <input
+        [(ngModel)]="pessoa.nome"
+        #nome="ngModel"
+        type="text"
+        class="form-control"
+        id="nome_input"
+        name="nome"
+        minlength="2"
+        required
+      />
+      <div
+        *ngIf="nome.errors && (nome.dirty || nome.touched)"
+        class="alert alert-danger"
+      >
+        <div [hidden]="!nome.errors.required">Digite o nome da pessoa.</div>
+        <div [hidden]="!nome.errors.minlength">
+          O nome deve conter ao menos 2 caracteres.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="idade">Idade: </label>
+      <input
+        [(ngModel)]="pessoa.idade"
+        #idade="ngModel"
+        type="text"
+        class="form-control"
+        id="idade_input"
+        name="idade"
+        required
+      />
+      <div
+        *ngIf="idade.errors && (idade.dirty || idade.touched)"
+        class="alert alert-danger"
+      >
+        <div [hidden]="!idade.errors.required">Digite a idade da pessoa.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="dataNascimento">Data de Nascimento: </label>
+      <input
+        [(ngModel)]="pessoa.dataNascimento"
+        #dataNascimento="ngModel"
+        type="date"
+        class="form-control"
+        id="dataNascimento_input"
+        name="dataNascimento"
+        required
+      />
+      <div
+        *ngIf="
+          dataNascimento.errors &&
+          (dataNascimento.dirty || dataNascimento.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div [hidden]="!dataNascimento.errors.required">
+          Selecione a data de nascimento da pessoa.
+        </div>
+      </div>
+    </div>
+    <button
+      (click)="atualizar()"
+      [disabled]="!formPessoa.form.valid"
+      type="button"
+      class="btn btn-primary"
+    >
+      <i class="fa fa-save" aria-hidden="true"></i> Atualizar
+    </button>
+    <a href="#" class="btn btn-secondary" [routerLink]="['/pessoas']">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+    </a>
+  </form>
+</div>
