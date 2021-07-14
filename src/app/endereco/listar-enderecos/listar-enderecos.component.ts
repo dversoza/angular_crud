@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { EnderecoService } from '../services';
-import { Endereco } from 'src/app/shared/models/endereco';
+import { Endereco } from 'src/app/shared/models/endereco.model';
 
 @Component({
   selector: 'app-listar-enderecos',

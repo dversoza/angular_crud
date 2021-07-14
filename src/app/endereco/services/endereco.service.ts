@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Endereco } from 'src/app/shared/models/endereco';
+import { Endereco } from 'src/app/shared/models/endereco.model';
 
 const LS_CHAVE: string = 'enderecos';
 
@@ -25,7 +25,7 @@ export class EnderecoService {
 
   buscarPorId(id: number): Endereco {
     const enderecos: Endereco[] = this.listarTodos();
-    let foundEndereco = enderecos.find((e) => (e.id = id));
+    let foundEndereco = enderecos.find((e) => e.id === id);
     if (foundEndereco) {
       return foundEndereco;
     } else {
@@ -35,7 +35,7 @@ export class EnderecoService {
 
   buscarPorBairro(bairro: string): Endereco[] {
     const enderecos: Endereco[] = this.listarTodos();
-    let foundEndereco = enderecos.filter((e) => (e.bairro = bairro));
+    let foundEndereco = enderecos.filter((e) => e.bairro === bairro);
     if (foundEndereco) {
       return foundEndereco;
     } else {

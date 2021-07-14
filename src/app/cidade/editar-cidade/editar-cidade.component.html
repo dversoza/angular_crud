@@ -1,0 +1,15 @@
+<h1>Editar cidade</h1>
+
+<form #formCidade="ngForm">
+  <input type="text" name="nome" id="nome_input" [(ngModel)]="cidade.nome" />
+  <input
+    type="text"
+    name="estado"
+    id="estado_input"
+    [(ngModel)]="cidade.estado"
+  />
+  <button type="button" (click)="atualizar()">
+    <i class="fa fa-save"></i> Salvar
+  </button>
+  <button><i class="fa fa-arrow-alt-circle-left"></i> Voltar</button>
+</form>

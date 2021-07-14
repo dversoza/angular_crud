@@ -1,0 +1,14 @@
+<h1>Criar cidade</h1>
+
+<form #formCidade="ngForm">
+  <input #nome="ngModel" type="text" [(ngModel)]="cidade.nome" name="nome" />
+  <input
+    #estado="ngModel"
+    type="text"
+    [(ngModel)]="cidade.estado"
+    name="estado"
+  />
+  <button type="button" (click)="criar()">
+    <i class="fa fa-plus"></i> Criar
+  </button>
+</form>

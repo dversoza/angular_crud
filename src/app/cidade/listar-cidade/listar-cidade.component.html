@@ -1,0 +1,29 @@
+<h1>Cidades</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Estado</th>
+      <th>
+        <a href="#" [routerLink]="['/cidades/novo']"> Criar</a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cidade of cidades">
+      <td>{{ cidade.nome }}</td>
+      <td>{{ cidade.estado }}</td>
+      <td>
+        <button [routerLink]="['/cidades/editar', cidade.id]">
+          <i class="fa fa-pencil"></i> Editar
+        </button>
+        <button (click)="remover($event, cidade)">
+          <i class="fa fa-remove"></i> Excluir
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="cidades.length == 0">Nenhuma cidade encontrada.</p>
