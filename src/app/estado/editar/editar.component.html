@@ -1,27 +1,33 @@
 <h1>Editar Estado</h1>
 
 <form #formEstado="ngForm">
-  <label for="nome">Nome do Estado: </label>
-  <input
-    #nome="ngModel"
-    type="text"
-    name="estado"
-    id="estado_input"
-    [(ngModel)]="estado.nome"
-    required
-    minlength="3"
-  />
-  <label for="sigla">Sigla do Estado: </label>
-  <input
-    #sigla="ngModel"
-    type="text"
-    name="sigla"
-    id="sigla_input"
-    [(ngModel)]="estado.sigla"
-    required
-    maxlength="2"
-    minlength="2"
-  />
+  <div class="form-group">
+    <label for="nome">Nome do Estado: </label>
+    <input
+      #nome="ngModel"
+      type="text"
+      name="estado"
+      id="estado_input"
+      [(ngModel)]="estado.nome"
+      required
+      class="form-control"
+      minlength="3"
+    />
+  </div>
+  <div class="form-group">
+    <label for="sigla">Sigla do Estado: </label>
+    <input
+      #sigla="ngModel"
+      type="text"
+      name="sigla"
+      class="form-control"
+      id="sigla_input"
+      [(ngModel)]="estado.sigla"
+      required
+      maxlength="2"
+      minlength="2"
+    />
+  </div>
   <button type="button" (click)="atualizar()">Atualizar</button>
   <a href="#" [routerLink]="['/estados/listar']"> Voltar</a>
 </form>
