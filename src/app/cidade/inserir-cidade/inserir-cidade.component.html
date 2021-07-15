@@ -1,14 +1,65 @@
 <h1>Criar cidade</h1>
 
 <form #formCidade="ngForm">
-  <input #nome="ngModel" type="text" [(ngModel)]="cidade.nome" name="nome" />
-  <input
-    #estado="ngModel"
-    type="text"
-    [(ngModel)]="cidade.estado"
-    name="estado"
-  />
-  <button type="button" (click)="criar()">
-    <i class="fa fa-plus"></i> Criar
+  <div class="form-group">
+    <label for="nome">Cidade: </label>
+    <input
+      [(ngModel)]="cidade.nome"
+      #nome="ngModel"
+      id="nome_input"
+      name="nome"
+      type="text"
+      class="form-control"
+      placeholder="Nome da cidade"
+      required
+      minlength="3"
+      autocomplete="locality"
+    />
+    <div
+      *ngIf="nome.errors && (nome.dirty || nome.touched)"
+      class="alert alert-danger"
+    >
+      <div [hidden]="!nome.errors.required">Digite o nome da cidade.</div>
+      <div [hidden]="!nome.errors.minlength">
+        O nome da cidade deve conter pelo menos 3 caracteres.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="estado">Estado: </label>
+    <input
+      [(ngModel)]="cidade.estado"
+      #estado="ngModel"
+      name="estado"
+      id="input_estado"
+      type="text"
+      class="form-control"
+      placeholder="Estado"
+      required
+      minlength="2"
+      maxlength="2"
+      autocomplete="region"
+    />
+    <div
+      *ngIf="estado.errors && (estado.dirty || estado.touched)"
+      class="alert alert-danger"
+    >
+      <div [hidden]="!estado.errors.required">Digite a sigla do Estado.</div>
+      <div [hidden]="!estado.errors.minlength">
+        A sigla do Estado deve conter exatamente 2 caracteres.
+      </div>
+    </div>
+    <small>Digite apenas a sigla do Estado.</small>
+  </div>
+  <button
+    [disabled]="!formCidade.form.valid"
+    type="button"
+    (click)="criar()"
+    class="btn btn-primary"
+  >
+    <i class="fa fa-save" aria-hidden="true"></i> Salvar
   </button>
+  <a class="btn btn-secondary" href="#" [routerLink]="['/cidades']"
+    ><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a
+  >
 </form>
