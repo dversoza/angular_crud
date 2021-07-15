@@ -1,0 +1,39 @@
+<h1>Estados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Estado</th>
+      <th>Sigla</th>
+      <th><a [routerLink]="['/estados/novo']" href="#"> Novo</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let estado of estados">
+      <td>{{ estado.nome }}</td>
+      <td>{{ estado.sigla }}</td>
+      <td class="text-center" style="width: 300px">
+        <a
+          href="#"
+          [routerLink]="['/estados/editar', estado.id]"
+          title="Editar"
+          alt="Editar"
+          class="btn btn-xs btn-info"
+        >
+          <i class="fa fa-edit" aria-hidden="true"></i> Editar
+        </a>
+        <a
+          (click)="remover($event, estado)"
+          href="#"
+          title="Excluir"
+          alt="Excluir"
+          class="btn btn-xs btn-danger"
+        >
+          <i class="fa fa-times" aria-hidden="true"></i> Excluir
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="estados.length == 0">Nenhum Estado encontrado</p>

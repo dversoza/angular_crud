@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import * as cidade from './cidade';
+import * as estado from './estado';
 import { EditarEnderecosComponent } from './endereco/editar-enderecos';
 import { InserirEnderecosComponent } from './endereco/inserir-enderecos';
 import { ListarEnderecosComponent } from './endereco/listar-enderecos';
@@ -25,6 +26,11 @@ const routes: Routes = [
   { path: 'cidades/novo', component: cidade.InserirCidadeComponent },
   { path: 'cidades/editar/:id', component: cidade.EditarCidadeComponent },
   { path: 'cidades/excluir/:id', component: cidade.ListarCidadeComponent },
+  { path: 'estados', redirectTo: 'estados/listar' },
+  { path: 'estados/listar', component: estado.ListarComponent },
+  { path: 'estados/novo', component: estado.InserirComponent },
+  { path: 'estados/editar/:id', component: estado.EditarComponent },
+  { path: 'estados/excluir/:id', component: estado.ListarComponent },
 ];
 
 @NgModule({

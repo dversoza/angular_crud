@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PessoaModule } from './pessoa';
 import { EnderecoModule } from './endereco';
 import { CidadeModule } from './cidade';
+import { EstadoModule } from './estado';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { CidadeModule } from './cidade';
     PessoaModule,
     EnderecoModule,
     CidadeModule,
+    EstadoModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
