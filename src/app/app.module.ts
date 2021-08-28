@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared';
 
 import { AppRoutingModule } from './app-routing.module';
 import { PessoaModule } from './pessoa';
@@ -18,6 +19,7 @@ import { EstadoModule } from './estado';
     EnderecoModule,
     CidadeModule,
     EstadoModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
