@@ -6,9 +6,10 @@ import { EditarComponent } from './editar/editar.component';
 import { EstadoService } from './services';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ModalEstadoComponent } from './modal-estado/modal-estado.component';
 
 @NgModule({
-  declarations: [InserirComponent, ListarComponent, EditarComponent],
+  declarations: [InserirComponent, ListarComponent, EditarComponent, ModalEstadoComponent],
   imports: [CommonModule, RouterModule, FormsModule],
   providers: [EstadoService],
 })

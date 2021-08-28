@@ -26,10 +26,18 @@
         {{ endereco.rua }}, {{ endereco.numero }} - {{ endereco.complemento }}
       </td>
       <td>{{ endereco.bairro }}</td>
-      <td>{{ endereco.cep }}</td>
+      <td>{{ endereco.cep! | mask: "00000-000" }}</td>
       <td>{{ endereco.cidade }}</td>
       <td>{{ endereco.estado }}</td>
       <td class="text-center">
+        <button
+          type="button"
+          class="btn btn-xs btn-secondary"
+          (click)="abrirModalEndereco(endereco)"
+        >
+          <i class="fa fa-eye" aria-hidden="true"></i>
+          Ver
+        </button>
         <a
           href="#"
           [routerLink]="['/enderecos/editar', endereco.id]"

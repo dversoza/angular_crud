@@ -23,6 +23,13 @@
       <td>{{ cidade.estado }}</td>
       <td class="text-center">
         <button
+          type="button"
+          class="btn btn-xs btn-secondary"
+          (click)="abrirModalCidade(cidade)"
+        >
+          <i class="fa fa-eye"></i> Ver
+        </button>
+        <button
           [routerLink]="['/cidades/editar', cidade.id]"
           class="btn btn-xs btn-info"
         >

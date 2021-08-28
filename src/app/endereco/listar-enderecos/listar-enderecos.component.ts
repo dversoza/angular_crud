@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { EnderecoService } from '../services';
 import { Endereco } from 'src/app/shared/models/endereco.model';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalEnderecoComponent } from '../modal-endereco';
 
 @Component({
   selector: 'app-listar-enderecos',
@@ -11,7 +13,10 @@ import { Endereco } from 'src/app/shared/models/endereco.model';
 export class ListarEnderecosComponent implements OnInit {
   enderecos!: Endereco[];
 
-  constructor(private enderecoService: EnderecoService) {}
+  constructor(
+    private enderecoService: EnderecoService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.enderecos = this.listarTodos();
@@ -27,5 +32,10 @@ export class ListarEnderecosComponent implements OnInit {
       this.enderecoService.remover(endereco);
       this.enderecos = this.listarTodos();
     }
+  }
+
+  abrirModalEndereco(endereco: Endereco): void {
+    const modalRef = this.modalService.open(ModalEnderecoComponent);
+    modalRef.componentInstance.endereco = endereco;
   }
 }

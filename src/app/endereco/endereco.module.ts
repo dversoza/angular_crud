@@ -9,13 +9,17 @@ import { ListarEnderecosComponent } from './listar-enderecos/listar-enderecos.co
 import { InserirEnderecosComponent } from './inserir-enderecos/inserir-enderecos.component';
 import { EditarEnderecosComponent } from './editar-enderecos/editar-enderecos.component';
 import { SharedModule } from '../shared';
-import { NgxMaskModule } from 'ngx-mask';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { ModalEnderecoComponent } from './modal-endereco/modal-endereco.component';
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
   declarations: [
     ListarEnderecosComponent,
     InserirEnderecosComponent,
     EditarEnderecosComponent,
+    ModalEnderecoComponent,
   ],
   imports: [
     CommonModule,

@@ -20,6 +20,13 @@
       <td>{{ estado.nome }}</td>
       <td>{{ estado.sigla }}</td>
       <td class="text-center" style="width: 300px">
+        <button
+          type="button"
+          class="btn btn-xs btn-secondary"
+          (click)="abrirModalEstado(estado)"
+        >
+          <i class="fa fa-eye" aria-hidden="true"></i> Ver
+        </button>
         <a
           href="#"
           [routerLink]="['/estados/editar', estado.id]"
