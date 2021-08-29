@@ -43,7 +43,9 @@
         class="alert alert-danger"
       >
         <div [hidden]="!idade.errors.required">Digite a idade da pessoa.</div>
-        <div [hidden]="!idade.errors?.minimo">A idade deve ser maior ou igual a 18.</div>
+        <div [hidden]="!idade.errors?.minimo">
+          A idade deve ser maior ou igual a 18.
+        </div>
       </div>
     </div>
     <div class="form-group">
@@ -69,6 +71,61 @@
           Selecione a data de nascimento da pessoa.
         </div>
       </div>
+    </div>
+    <div class="form-group">
+      <label for="motorista">Carteira de Motorista:</label>
+      <input
+        [(ngModel)]="pessoa.motorista"
+        #motorista="ngModel"
+        type="radio"
+        name="motorista"
+        value="Não"
+        id="motorista_não"
+        class="form-check-input"
+      />
+      Não <br />
+      <input
+        [(ngModel)]="pessoa.motorista"
+        #motorista="ngModel"
+        type="radio"
+        name="motorista"
+        value="A"
+        id="motorista_A"
+        class="form-check-input"
+      />
+      A <br />
+      <input
+        [(ngModel)]="pessoa.motorista"
+        #motorista="ngModel"
+        type="radio"
+        name="motorista"
+        value="B"
+        id="motorista_B"
+        class="form-check-input"
+      />
+      B <br />
+      <input
+        [(ngModel)]="pessoa.motorista"
+        #motorista="ngModel"
+        type="radio"
+        name="motorista"
+        value="AB"
+        id="motorista_AB"
+        class="form-check-input"
+      />
+      AB <br />
+    </div>
+    <div class="form-group">
+      <label for="fisica">Física:</label>
+      <input
+        [(ngModel)]="pessoa.fisica"
+        #fisica="ngModel"
+        type="checkbox"
+        name="fisica"
+        value="true"
+        id="fisica_input"
+        class="form-check-input"
+      />
     </div>
     <button
       (click)="atualizar()"

@@ -11,6 +11,7 @@ import { EditarEnderecosComponent } from './editar-enderecos/editar-enderecos.co
 import { SharedModule } from '../shared';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { ModalEnderecoComponent } from './modal-endereco/modal-endereco.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -27,6 +28,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     FormsModule,
     SharedModule,
     NgxMaskModule.forRoot(),
+    NgSelectModule,
   ],
   providers: [EnderecoService],
 })

@@ -9,6 +9,7 @@ import { InserirCidadeComponent } from './inserir-cidade/inserir-cidade.componen
 import { EditarCidadeComponent } from './editar-cidade/editar-cidade.component';
 import { ListarCidadeComponent } from './listar-cidade/listar-cidade.component';
 import { ModalCidadeComponent } from './modal-cidade/modal-cidade.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { ModalCidadeComponent } from './modal-cidade/modal-cidade.component';
     EditarCidadeComponent,
     ModalCidadeComponent,
   ],
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, NgSelectModule],
   providers: [CidadeService],
 })
 export class CidadeModule {}

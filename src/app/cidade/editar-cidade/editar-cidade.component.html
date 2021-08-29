@@ -27,29 +27,15 @@
   </div>
   <div class="form-group">
     <label for="estado">Estado: </label>
-    <input
-      [(ngModel)]="cidade.estado"
-      #estado="ngModel"
+    <ng-select
+      [items]="estados"
+      bindLabel="sigla"
       name="estado"
-      id="input_estado"
-      type="text"
-      class="form-control"
-      placeholder="Estado"
+      [(ngModel)]="cidade.estado"
+      placeholder="Selecione o estado"
       required
-      minlength="2"
-      maxlength="2"
-      autocomplete="region"
-    />
-    <div
-      *ngIf="estado.errors && (estado.dirty || estado.touched)"
-      class="alert alert-danger"
     >
-      <div [hidden]="!estado.errors.required">Digite a sigla do Estado.</div>
-      <div [hidden]="!estado.errors.minlength">
-        A sigla do Estado deve conter exatamente 2 caracteres.
-      </div>
-    </div>
-    <small>Digite apenas a sigla do Estado.</small>
+    </ng-select>
   </div>
   <button
     [disabled]="!formCidade.form.valid"

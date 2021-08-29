@@ -2,6 +2,37 @@
 
 <form #formEndereco="ngForm">
   <div class="form-group">
+    <label for="logradouro">Logradouro:</label> <br />
+    <input
+      type="radio"
+      name="logradouro"
+      value="Rua"
+      [(ngModel)]="endereco.logradouro"
+    />
+    Rua <br />
+    <input
+      type="radio"
+      name="logradouro"
+      value="Travessa"
+      [(ngModel)]="endereco.logradouro"
+    />
+    Travessa <br />
+    <input
+      type="radio"
+      name="logradouro"
+      value="Avenida"
+      [(ngModel)]="endereco.logradouro"
+    />
+    Avenida <br />
+    <input
+      type="radio"
+      name="logradouro"
+      value="Alameda"
+      [(ngModel)]="endereco.logradouro"
+    />
+    Alameda <br />
+  </div>
+  <div class="form-group">
     <label for="rua">Rua: </label>
     <input
       [(ngModel)]="endereco.rua"
@@ -107,6 +138,15 @@
   </div>
   <div class="form-group">
     <label for="cidade">Cidade: </label>
+    <ng-select
+      [items]="cidades"
+      bindLabel="nome"
+      name="cidade"
+      [(ngModel)]="endereco.cidade"
+      placeholder="Selecione a Cidade"
+      required
+    >
+    </ng-select>
     <input
       [(ngModel)]="endereco.cidade"
       #cidade="ngModel"
@@ -130,30 +170,19 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="estado">Estado: </label>
+    <label for="residencial">Residencial: </label>
     <input
-      [(ngModel)]="endereco.estado"
-      #estado="ngModel"
-      name="estado"
-      id="input_estado"
-      type="text"
-      class="form-control"
-      placeholder="Estado"
-      required
-      minlength="2"
-      maxlength="2"
-      autocomplete="region"
+      type="checkbox"
+      [(ngModel)]="endereco.residencial"
+      #residencial="ngModel"
+      name="residencial"
+      id="residencial_input"
+      class="form-check-input"
+      placeholder="Residencial"
     />
-    <div
-      *ngIf="estado.errors && (estado.dirty || estado.touched)"
-      class="alert alert-danger"
-    >
-      <div [hidden]="!estado.errors.required">Digite a sigla do Estado.</div>
-      <div [hidden]="!estado.errors.minlength">
-        A sigla do Estado deve conter exatamente 2 caracteres.
-      </div>
-    </div>
-    <small>Digite apenas a sigla do Estado.</small>
   </div>
-  <button type="button" (click)="criar()">Criar</button>
+  <button class="btn btn-primary" type="button" (click)="criar()">Criar</button>
+  <a class="btn btn-secondary" href="#" [routerLink]="['/enderecos']"
+    ><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a
+  >
 </form>

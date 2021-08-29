@@ -8,6 +8,7 @@
       <th>CEP</th>
       <th>Cidade</th>
       <th>Estado</th>
+      <th>Tipo</th>
       <th class="text-center">
         <a
           href="#"
@@ -23,12 +24,14 @@
   <tbody>
     <tr *ngFor="let endereco of enderecos">
       <td>
-        {{ endereco.rua }}, {{ endereco.numero }} - {{ endereco.complemento }}
+        {{ endereco.logradouro }} {{ endereco.rua }}, {{ endereco.numero }} -
+        {{ endereco.complemento }}
       </td>
       <td>{{ endereco.bairro }}</td>
       <td>{{ endereco.cep! | mask: "00000-000" }}</td>
-      <td>{{ endereco.cidade }}</td>
-      <td>{{ endereco.estado }}</td>
+      <td>{{ endereco.cidade?.nome }}</td>
+      <td>{{ endereco.cidade?.estado?.sigla }}</td>
+      <td>{{ endereco.residencial! ? "Residencial" : "Comercial" }}</td>
       <td class="text-center">
         <button
           type="button"

@@ -9,13 +9,15 @@
 </div>
 
 <div class="modal-body">
+  <p>Logradouro: {{ endereco.logradouro }}</p>
   <p>Rua: {{ endereco.rua }}</p>
   <p>Número: {{ endereco.numero }}</p>
   <p>Complemento: {{ endereco.complemento }}</p>
   <p>Bairro: {{ endereco.bairro }}</p>
   <p>CEP: {{ endereco.cep! | mask: "00000-000" }}</p>
-  <p>Cidade: {{ endereco.cidade }}</p>
-  <p>Estado: {{ endereco.estado! | caixaAlta }}</p>
+  <p>Cidade: {{ endereco?.cidade?.nome }}</p>
+  <p>Estado: {{ endereco?.cidade?.estado?.nome }}</p>
+  <p>Tipo: {{ endereco.residencial! ? "Residencial" : "Comercial" }}</p>
 </div>
 
 <div class="modal-footer">
