@@ -1,5 +1,6 @@
 {
   "name": "crud-pessoa",
+  "description": "Projeto desenvolvido na pós-graduação em DAS da UFPR",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
@@ -12,6 +13,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dversoza/angular_crud"
+  },
+  "engines": {
+    "node": "14.x"
   },
   "dependencies": {
     "@angular/animations": "^12.1.4",
